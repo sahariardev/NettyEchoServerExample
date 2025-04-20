@@ -29,7 +29,7 @@ public class Server {
 
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
-                            ch.pipeline().addLast(serverHandler);
+                            ch.pipeline().addLast(new TestOutboundHandler()).addLast(serverHandler);
                         }
                     });
             ChannelFuture future = bootstrap.bind().sync();
